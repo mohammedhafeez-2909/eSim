@@ -1,0 +1,11 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+logs/*.log
+reports/*.json
+reports/*.txt
+!reports/sample_dependency_report.json
+.vscode/
+.idea/
+.pytest_cache/

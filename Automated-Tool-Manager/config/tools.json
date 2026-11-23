@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "project": "eSim Automated Tool Manager",
+    "version": "1.0.0",
+    "target_esim_release": "2.4+"
+  },
+  "environment_variables": [
+    {
+      "name": "ESIM_HOME",
+      "required": false,
+      "description": "Root installation directory of eSim (e.g., /opt/eSim or C:\\FOSSEE\\eSim)"
+    },
+    {
+      "name": "PATH",
+      "required": true,
+      "description": "System executable search path required to locate EDA binaries"
+    }
+  ],
+  "tools": [
+    {
+      "id": "python3",
+      "name": "Python Interpreter",
+      "executable": "python",
+      "alt_executables": ["python3"],
+      "version_flag": "--version",
+      "version_regex": "Python\\s+(\\d+\\.\\d+\\.\\d+)",
+      "min_version": "3.8.0",
+      "recommended_version": "3.11.0",
+      "required": true,
+      "packages": {
+        "linux_apt": "python3",
+        "linux_dnf": "python3",
+        "windows_winget": "Python.Python.3.11"
+      },
+      "description": "Core runtime required to execute eSim GUI and simulation scripts."
+    },
+    {
+      "id": "ngspice",
+      "name": "Ngspice Circuit Simulator",
+      "executable": "ngspice",
+      "alt_executables": ["ngspice_con"],
+      "version_flag": "--version",
+      "version_regex": "ngspice[-\\s]+(\\d+(?:\\.\\d+)*)",
+      "min_version": "34.0",
+      "recommended_version": "42.0",
+      "required": true,
+      "packages": {
+        "linux_apt": "ngspice",
+        "linux_dnf": "ngspice",
+        "windows_winget": "ngspice.ngspice"
+      },
+      "description": "Mixed-level/mixed-signal circuit simulator used for analog and mixed-signal SPICE netlists."
+    },
+    {
+      "id": "kicad",
+      "name": "KiCad EDA",
+      "executable": "kicad-cli",
+      "alt_executables": ["kicad", "eeschema"],
+      "version_flag": "--version",
+      "version_regex": "(\\d+\\.\\d+\\.\\d+)",
+      "min_version": "6.0.0",
+      "recommended_version": "8.0.0",
+      "required": true,
+      "packages": {
+        "linux_apt": "kicad",
+        "linux_dnf": "kicad",
+        "windows_winget": "KiCad.KiCad"
+      },
+      "description": "Schematic capture and PCB layout suite integrated with eSim."
+    },
+    {
+      "id": "ghdl",
+      "name": "GHDL VHDL Simulator",
+      "executable": "ghdl",
+      "alt_executables": [],
+      "version_flag": "--version",
+      "version_regex": "GHDL\\s+(\\d+\\.\\d+\\.\\d+)",
+      "min_version": "1.0.0",
+      "recommended_version": "4.0.0",
+      "required": false,
+      "packages": {
+        "linux_apt": "ghdl",
+        "linux_dnf": "ghdl",
+        "windows_winget": "ghdl.ghdl"
+      },
+      "description": "Open-source VHDL analyzer and simulator for digital/mixed-signal NgHDL flows."
+    },
+    {
+      "id": "verilator",
+      "name": "Verilator HDL Simulator",
+      "executable": "verilator",
+      "alt_executables": ["verilator_bin"],
+      "version_flag": "--version",
+      "version_regex": "Verilator\\s+(\\d+\\.\\d+)",
+      "min_version": "4.0",
+      "recommended_version": "5.020",
+      "required": false,
+      "packages": {
+        "linux_apt": "verilator",
+        "linux_dnf": "verilator",
+        "windows_winget": "Verilator.Verilator"
+      },
+      "description": "High-speed Verilog/SystemVerilog simulator used for digital co-simulation."
+    }
+  ]
+}
